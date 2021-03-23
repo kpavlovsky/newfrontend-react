@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import AuthNavbar from "./components/Navbar";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <AuthNavbar></AuthNavbar>
+            <Switch>
+                <Route path="/sign-in">
+                    <SignIn/>
+                </Route>
+                <Route path="/forgot-password">
+                    <ForgotPassword/>
+                </Route>
+                <Route path="/">
+                    <SignUp/>
+                </Route>
+            </Switch>
+        </Router>
+    );
+}
+
+function SignIn() {
+    return <h2>Sign in please</h2>;
+}
+
+function SignUp() {
+    return <h2>Sign Up please</h2>;
+}
+
+function ForgotPassword() {
+    return <h2>Forgot password please</h2>;
 }
 
 export default App;
